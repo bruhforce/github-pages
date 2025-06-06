@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Tools</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0066cc;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0066cc;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0052a3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Prompt Engineering Tools</h1>
+            <nav>
+                <a href="/">Главная</a>
+                <a href="/templates">Шаблоны промптов</a>
+                <a href="/create_template">Создать шаблон</a>
+            </nav>
+        </header>
+
+        <div class="card">
+            <h2>Добро пожаловать в инструменты промпт-инженерии</h2>
+            <p>Эта система позволяет создавать, управлять и тестировать промпты для языковых моделей.</p>
+            <p>Возможности:</p>
+            <ul>
+                <li>Создание шаблонов промптов с переменными</li>
+                <li>Версионирование промптов</li>
+                <li>Тестирование промптов с различными языковыми моделями</li>
+                <li>Интеграция с системой хранения диалогов</li>
+            </ul>
+            <a href="/templates" class="btn">Начать работу</a>
+        </div>
+
+        <div class="card">
+            <h2>Последние шаблоны</h2>
+            {% if templates %}
+                <ul>
+                    {% for template in templates[:5] %}
+                        <li>
+                            <a href="/template/{{ template.id }}">{{ template.name }}</a>
+                            <small>{{ template.description }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <a href="/templates" class="btn">Все шаблоны</a>
+            {% else %}
+                <p>Шаблоны еще не созданы. <a href="/create_template">Создать первый шаблон</a></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
